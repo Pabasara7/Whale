@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>
-            WHALE ONBOARDING
-        </title>
-        <link rel="stylesheet" href="Whale_Ipad_Landscape_Style.css">
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<head>
+    <title>
+        WHALE ONBOARDING
+    </title>
+    <link rel="stylesheet" href="Whale_Ipad_Landscape_Style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-        <style>
-            
+    <style>
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
 
-            #col-1 {
-                position: relative;
-                width: 80%;
-                float: left;
-                height: 100%;
-                background-color: #282828;
-                z-index: 1
-                }
+        .left {
+            left: 0;
+            background-color: #111;
+        }
 
-                #col-2 {
-                position: relative;
-                width: 20%;
-                float: left;
-                height: 100%;
-                background-color: #0080ff;
-                z-index: 1
-                }
-        </style>
-    </head>
+        /* Control the right side */
+        .right {
+            right: 0;
+            background-color: red;
+        }
 
-    <body>
-        
-        <!--Onboarding First  page-->
-        <div data-role="page" id="onboarding1">
-            <a href="#onboarding2">
-                <div data-role="main" class="ui-content" >
-                    <img src="Images/logo 4.png" alt="Whale Logo" class="center" >
-                </div>
-            </a>
-        </div>
-       
-        <!--Onboarding Second page-->
-        <div data-role="page" id="onboarding2">
-            <div id="col-1">
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Onboarding First  page-->
+    <div data-role="page" id="onboarding1">
+        <a href="#onboarding2">
+            <div data-role="main" class="ui-content">
+                <img src="Images/logo 4.png" alt="Whale Logo" class="center">
+            </div>
+        </a>
+    </div>
+
+    <!--Onboarding Second page-->
+    <div data-role="page" id="onboarding2">
+        <div class="split left">
+            <div class="centered">
                 <h4>Let the adventure begin !</h4>
-                <p>Why spend your  free time sitting by the TV when there is a world full of wonders to explore.</p>
+                <p>Why spend your free time sitting by the TV when there is a world full of wonders to explore.</p>
                 <p>Join hands with Whale, become a Whaler and get a chance to win amazing PRIZES!!
-                    <br>We offer you the best locations in United Kingdom.</p>
+                    <br>We offer you the best locations in United Kingdom.
+                </p>
                 <p>Visit all the places to get your hands on the GRAND PRIZE!</p>
             </div>
-            <div id="col-2">
-                <p>Visit all the places to get your hands on the GRAND PRIZE!</p>
-                <img src="Images/ios7-close-empty_icon.png" alt="Close Button" >
+        </div>
+
+        <div class="split right">
+            <div class="centered">
+                <a href="Login_Page.php"><img src="Images/ios7-close-empty_icon.png" alt="Close Button"></a>
                 <a href="#onboarding3" class="ui-btn ui-btn-inline">Next</a>
             </div>
-        </div>
-
-     <!--Onboarding Third page-->
-     <div data-role="page" id="onboarding3">
-        <div id="col-1">
-            <p>All you have to do is visit these amazing locations and simply scan the QR code there and claim your PRIZE!</p>
-            <p>Also we offer many more games and fun activites</p>
-            <p>With Whale trains being one of the best transport companies in UK you can get to all places swiftly and easily</p>
-            <p>Soon may the Wellerman come<br>
-            To bring us sugar and tea and rum<br>
-            One day, when the tonguing is done<br>
-            We'll take our leave and go</p>
-        </div>
-        <div id="col-2">
-            <img src="Images/ios7-close-empty_icon.png" alt="Close Button" >
-            <a href="#onboarding2" class="ui-btn ui-btn-inline">Back</a>
-            <a href="Login_Page.html" class="ui-btn ui-btn-inline">Next</a>
-        </div>
-     </div>
+         </div>
+    </div>
 
 
+        <!--Onboarding Third page-->
+        <div data-role="page" id="onboarding3">
 
-    </body>
+            <div class="split left">
+                <div class="centered">
+                    <p>All you have to do is visit these amazing locations and simply scan the QR code there and claim
+                        your
+                        PRIZE!</p>
+                    <p>Also we offer many more games and fun activites</p>
+                    <p>With Whale trains being one of the best transport companies in UK you can get to all places
+                        swiftly
+                        and
+                        easily</p>
+                    <p>Soon may the Wellerman come<br>
+                        To bring us sugar and tea and rum<br>
+                        One day, when the tonguing is done<br>
+                        We'll take our leave and go</p>
+                </div>
+            </div>
+
+            <div class="split right">
+                <div class="centered">
+                    <a href="Login_Page.php"><img src="Images/ios7-close-empty_icon.png" alt="Close Button"></a>
+                    <a href="#onboarding2" class="ui-btn ui-btn-inline">Back</a>
+                    <a href="Login_Page.php" class="ui-btn ui-btn-inline">Next</a>
+                </div>
+            </div>
+
+</body>
 
 </html>

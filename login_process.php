@@ -2,14 +2,10 @@
 session_start();
 include('db.php'); 
 
-$pagename="Login Process";                                                                          //Create and populate a variable called $pagename
-echo "<title>".$pagename."</title>";                                                                        //display name of the page as window title
-echo "<body>";
-echo "<h4>".$pagename."</h4>";                                                                             //display name of the page on the web page
-                     
-
 $logemail = $_POST['userEmail'];
 $logpword = $_POST['userPassword'];
+$errorpassword = "Password incorrect";
+$erroremail = "Email is incorrect";
 
 if(!(empty($logemail) or empty($logpword))){
 
@@ -25,7 +21,8 @@ if(!(empty($logemail) or empty($logpword))){
       
         if(!($arrayU['userEmail'] == $logemail) ){
 
-            echo"Email not recognised, <a href=login.php>login again</a>";
+            $_SESSION["error"] = $erroremail;
+            header("location: Login_Page.php"); //send user back to the login page.
 
 
         }else{
@@ -34,31 +31,25 @@ if(!(empty($logemail) or empty($logpword))){
 
             if(!($arrayU['userPassword']==$logpword)){
 
-                echo"Password not recognised,  <a href=login.php>login again</a>";
+                $_SESSION["error"] = $errorpassword;
+                header("location: Login_Page.php"); //send user back to the login page.
 
             }
 
             else{
-
-
-                // $valp+=1;
-
-                echo"Succefully Logged In <br><br>";
-
-                $_SESSION['userid']=$arrayU['userId'];
-                // $_SESSION['usertype']=$arrayU['userType'];
-                $_SESSION['fname']=$arrayU['userFName'];
-                $_SESSION['sname']=$arrayU['userSName'];
-   
-                echo"Welcome ".$_SESSION['fname']." ". $_SESSION['sname']."";
-
+                header("location: Home_Page.php");
+              
+                $_SESSION['userId']=$arrayU['userId'];
+                $_SESSION['username']=$arrayU['username'];
+               
                }           
         }
 
     }
 
     if($valE==0){
-        echo"Email is Invalid,  <a href=Login_Page.html>login again</a>";
+        $_SESSION["error"] = $erroremail;
+            header("location: Login_Page.php"); //send user back to the login page.
     }
 
 
@@ -66,9 +57,5 @@ if(!(empty($logemail) or empty($logpword))){
 
 else{
 
-    echo"Please enter both fields";
-    echo"Go back to <a href=Login_Page.html>Login</a>";
 }
-                                                                                   //include head layout
-echo "</body>";
 ?>
